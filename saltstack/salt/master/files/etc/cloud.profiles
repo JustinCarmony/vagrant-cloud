@@ -1,0 +1,6 @@
+ubuntu_do:
+  provider: digital-ocean-cluster
+  image: Ubuntu 12.04 x64
+  size: 512MB
+  script: Ubuntu
+  location: New York 2

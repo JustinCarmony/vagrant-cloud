@@ -1,0 +1,5 @@
+provider: digital-ocean-cluster
+minion:
+    master:         master.cluster.salt.net
+    append_domain:  cluster.salt.net
+

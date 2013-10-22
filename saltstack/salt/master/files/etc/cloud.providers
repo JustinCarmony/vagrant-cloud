@@ -1,0 +1,7 @@
+digital-ocean-cluster:
+    client_key:     {{ salt['pillar.get']('auth:digital-ocean:client-id', '') }}
+    api_key:        {{ salt['pillar.get']('auth:digital-ocean:api-key', '') }}
+    provider:       digital_ocean
+    location:       {{ salt['pillar.get']('auth:digital-ocean:location', '') }}
+    ssh_key_file:   /root/.ssh/id_rsa
+    ssh_key_name:   salt-cloud-key

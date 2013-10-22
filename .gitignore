@@ -1,0 +1,3 @@
+.vagrant/
+config/prefs.rb
+saltstack/pillar/master/auth.sls
