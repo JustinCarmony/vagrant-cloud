@@ -34,6 +34,6 @@ rackspace-cluster:
     tenant: {{ salt['pillar.get']('auth:rackspace:tenant', '') }}
     apikey: {{ salt['pillar.get']('auth:rackspace:apikey', '') }}
 
-    ssh_key_file:   /root/.ssh/id_rsa
+    #ssh_key_file:   /root/.ssh/id_rsa
 
     provider: openstack
