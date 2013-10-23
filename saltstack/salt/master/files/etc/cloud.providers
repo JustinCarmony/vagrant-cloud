@@ -5,3 +5,35 @@ digital-ocean-cluster:
     location:       {{ salt['pillar.get']('auth:digital-ocean:location', '') }}
     ssh_key_file:   /root/.ssh/id_rsa
     ssh_key_name:   salt-cloud-key
+
+aws-cluster:
+    ssh_interface: public_ips
+    id: {{ salt['pillar.get']('auth:aws:id', '') }}
+    key: {{ salt['pillar.get']('auth:aws:key', '') }}
+    private_key: /root/.ssh/id_rsa
+    keyname: vagrant-cloud
+    securitygroup: default
+    location: {{ salt['pillar.get']('auth:aws:location', 'us-west-2') }}
+    ssh_username: ubuntu
+    provider: ec2
+
+rackspace-cluster:
+    # Configure Rackspace using the OpenStack plugin
+    #
+    identity_url: 'https://identity.api.rackspacecloud.com/v2.0/tokens'
+    compute_name: cloudServersOpenStack
+    protocol: ipv4
+
+    # Set the compute region:
+    #
+    compute_region: DFW
+
+    # Configure Rackspace authentication credentials
+    #
+    user: {{ salt['pillar.get']('auth:rackspace:user', '') }}
+    tenant: {{ salt['pillar.get']('auth:rackspace:tenant', '') }}
+    apikey: {{ salt['pillar.get']('auth:rackspace:apikey', '') }}
+
+    ssh_key_file:   /root/.ssh/id_rsa
+
+    provider: openstack

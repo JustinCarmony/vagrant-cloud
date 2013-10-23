@@ -2,5 +2,15 @@ ubuntu_do:
   provider: digital-ocean-cluster
   image: Ubuntu 12.04 x64
   size: 512MB
-  script: Ubuntu
   location: New York 2
+
+ubuntu_aws:
+    provider: aws-cluster
+    image: ami-4ac9437a
+    size: m1.small
+    ssh_username: ubuntu
+
+ubuntu_rs:
+    provider: rackspace-cluster
+    size: 512MB Standard Instance
+    image: Ubuntu 12.04 LTS (Precise Pangolin)

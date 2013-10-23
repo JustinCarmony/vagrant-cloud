@@ -1,5 +1,5 @@
 provider: digital-ocean-cluster
 minion:
-    master:         master.cluster.salt.net
-    append_domain:  cluster.salt.net
+    master:         {{ salt['grains.get']('ip_interfaces:eth0')[0] }}
+    append_domain:  {{ salt['pillar.get']('domain:append', '') }}
 

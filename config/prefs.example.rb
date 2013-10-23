@@ -1,3 +1,7 @@
+# Right now you also need to set values in saltstack/pillar/master/auth.sls
+# until in the future we can find a way to read the YAML data from there
+# and import it here
+
 # Rackspace Settings
 $rs_username    = "UserName"
 $rs_api_key     = "..."

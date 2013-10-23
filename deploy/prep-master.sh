@@ -1,11 +1,11 @@
 #!/bin/bash
 
 MASTER_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
-grep -i "master.cluster.salt.net" /etc/hosts \
-    || echo -e "\n$MASTER_IP\tmaster.cluster.salt.net\n127.0.1.1\tmaster.cluster.salt.net\n" >> /etc/hosts 
+grep -i $1 /etc/hosts \
+    || echo -e "\n$MASTER_IP\t$1\n127.0.1.1\t$1\n" >> /etc/hosts 
         
 
-echo "master.cluster.salt.net" > /etc/hostname
+echo $1 > /etc/hostname
 
 # Install just a few dependancies 
 aptitude install -y git-core 
@@ -39,6 +39,6 @@ else
 fi
 
 # Accept any new salt minions
-salt-key --yes -a master.cluster.salt.net
+salt-key --yes -a $1
 
 salt-call state.highstate

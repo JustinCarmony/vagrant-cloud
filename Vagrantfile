@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 =end
 
-  config.vm.hostname = 'master.cluster.salt.net'
+  config.vm.hostname = 'master.' + $setting_cluster_domain
   
   config.vm.provider :rackspace do |rs|
     rs.username = $rs_username
@@ -53,26 +53,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.box = "dummy"
   end
 
-  config.vm.provision :shell, inline: "sudo bash /vagrant/deploy/prep-master.sh"
-
-  # config.vm.provision :salt do |salt|
-  #   salt.install_master = true
-
-  #   # Auto Accept Keys, using this until seed_master is fixed. (see https://github.com/saltstack/salty-vagrant/pull/98)
-  #   #salt.accept_keys    = true
-
-  #   salt.master_config  = "saltstack/etc/master"
-  #   #salt.master_key     = "deploy/keys/master.pem" 
-  #   #salt.master_pub     = "deploy/keys/master.pub"
-
-  #   salt.minion_config  = "saltstack/etc/minion"
-  #   salt.minion_key     = "deploy/keys/minion.pem" 
-  #   salt.minion_pub     = "deploy/keys/minion.pub"
-
-  #   salt.seed_master    = { 'master.cluster.salt.net' => "deploy/keys/master.pub" }
-
-  #   salt.run_highstate  = true
-  #   salt.install_type   = "git"
-  #   salt.verbose = true
-  # end
+  config.vm.provision :shell, inline: "sudo bash /vagrant/deploy/prep-master.sh " + 'master.' + $setting_cluster_domain
 end
