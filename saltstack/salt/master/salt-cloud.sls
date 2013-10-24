@@ -1,6 +1,11 @@
 include:
     - common
 
+sshpass:
+    pkg.installed:
+        - require:
+            - pkg: common
+
 salt-cloud-pip-deps:
     pip.installed:
         - names:
@@ -35,3 +40,9 @@ salt-cloud:
     file.managed:
         - source: salt://master/files/etc/cloud.providers
         - template: jinja
+
+/etc/salt/cluster.map:
+    file.managed:
+        - source: salt://master/files/etc/cluster.map
+        - template: jinja
+

@@ -1,3 +1,11 @@
+domain:
+    append: cluster.example.com
+
+cluster:
+    aws: 3
+    rackspace: 3
+    digital-ocean: 3
+
 auth:
     digital-ocean:
         client-id:  ...
@@ -6,6 +14,10 @@ auth:
     aws:
         id:     ...
         key:    ...
+    rackspace:
+        user:   UserName
+        tenant: account #
+        apikey: ....
 
 ssh:
     id_rsa: |

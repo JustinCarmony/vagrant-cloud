@@ -38,7 +38,16 @@ else
     echo "minion config the same"
 fi
 
+# Taking time ot make sure salt-minion has time to generate a key and connect to the master
+# 1-2 seconds would probably be fine, but we'll do 30 just in case.
+echo "Waiting 30 seconds before continuing"
+sleep 30
+
 # Accept any new salt minions
-salt-key --yes -a $1
+salt-key --yes -A
 
 salt-call state.highstate
+
+salt-cloud -y -m /etc/salt/cluster.map
+
+salt \* state.highstate

@@ -1,0 +1,9 @@
+{
+  "name": "zombie-horde",
+  "description": "Used to parallel hit a website",
+  "author": "Justin Carmony <justin@justincarmony.com>",
+  "dependencies": {
+    "zombie": "2.x.x"
+  },
+  "engine": "node >= 0.4.1"
+}

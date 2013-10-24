@@ -1,10 +1,15 @@
 vagrant-cloud
 =============
 
-Vagrant to setup a salt-cloud master in the cloud
+``vagrant-cloud`` is a project that uses ``vagrant``, ``salt``, and ``salt-cloud`` to 
+deploy disposable VMs on several providers. 
 
-This is a work-in-progress & needs to be well documented first.
+__This is very experimental & a work in progress, it may not work for everyone.__
 
-Currently only works for Digital Ocean.
+## Overview
 
-To get up and running 
+The goal is for us to be able to use ``vagrant`` to provision one ``salt-master``
+in any given provider (AWS, Rackspace, Digital Ocean, etc). Then, through that
+``salt-master``, multiple ``salt-minion`` servers can be spun up in any given provider and
+connect back to the ``salt-master``.
+
